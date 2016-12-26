@@ -1,34 +1,35 @@
-sample
+Pewdata Package Rstudio Presentation
 ========================================================
-author: 
-date: 
+author: Adam Glover
+date: 12/26/16
 autosize: true
 
-First Slide
+Introduction
 ========================================================
+This presentation will cover usage of pewdata package in R and exploratory research of Pew Research Center Mobile Commerce Questionaire
 
-For more details on authoring R presentations please visit <https://support.rstudio.com/hc/en-us/articles/200486468>.
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
-Slide With Code
+Pewdata
 ========================================================
-
+Pew Research allows users to download data referenced in articles on the website. The follwing dataset measures mobile commerce. 
 
 ```r
-summary(cars)
+# install package Hmisc. This will allow me to interact with the .sav file
+library(Hmisc)
+# assign the file path to mobile using the function spss.get
+mobile <- spss.get('/Users/ag/Desktop/pew_data/Mobile.sav', use.value.labels=TRUE)
+# view table columns
+names(mobile)
 ```
 
 ```
-     speed           dist       
- Min.   : 4.0   Min.   :  2.00  
- 1st Qu.:12.0   1st Qu.: 26.00  
- Median :15.0   Median : 36.00  
- Mean   :15.4   Mean   : 42.98  
- 3rd Qu.:19.0   3rd Qu.: 56.00  
- Max.   :25.0   Max.   :120.00  
+ [1] "psraid"   "sample"   "int.date" "state"    "cregion"  "usr"     
+ [7] "intuse"   "emlocc"   "home3nw"  "modem3b"  "tw"       "sns"     
+[13] "pial10a"  "pial10b"  "pial10c"  "pial11"   "pial12a"  "pial12b" 
+[19] "pial12c"  "pial12d"  "pial12e"  "pial13"   "ql1a"     "qc1"     
+[25] "hh1"      "employ"   "par"      "sex"      "age"      "educ"    
+[31] "hisp"     "race"     "inc"      "reg"      "party"    "partyln" 
+[37] "zipcode"  "weight"   "standwt" 
 ```
 
 Slide With Plot
