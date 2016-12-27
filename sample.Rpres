@@ -34,5 +34,5 @@ plot(mobile$sample)
 plot(mobile$state, las = 2)
 plot(mobile$cregion)
 plot(mobile$sex)
-hist(mobile$age)
+table(mobile$age)
 ```
