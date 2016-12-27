@@ -2,7 +2,7 @@ Pewdata Package Rstudio Presentation
 ========================================================
 author: Adam Glover
 date: 12/26/16
-autosize: true
+#autosize: true
 
 Introduction
 ========================================================
@@ -23,7 +23,7 @@ names(mobile)
 
 Summary of dataset
 ========================================================
-# summary(mobile) This command doesn't provide a visually pleasing understanding of the dataset.
+summary(mobile) This command doesn't provide a visually pleasing understanding of the dataset.
 
 Exploratory Research - Demographics
 ========================================================
@@ -40,80 +40,92 @@ hist(mobile$age)
 Survey Question Analyisis
 ========================================================
 
-#INTUSE	Do you use the internet, at least occasionally? {PIAL Trend}
+INTUSE	Do you use the internet, at least occasionally? {PIAL Trend}
 ```{r, echo=FALSE}
 plot(mobile$intuse)
 ```
-#EMLOCC	Do you send or receive email, at least occasionally? {PIAL Trend}
+
+EMLOCC	Do you send or receive email, at least occasionally? {PIAL Trend}
 ```{r, echo=FALSE}
 plot(mobile$emlocc)
 ```
-#If INTUSE=Yes or EMLOCC=Yes:
-#HOME3NW	Do you ever use the internet or email at HOME? {PIAL Trend modified}
+
+If INTUSE=Yes or EMLOCC=Yes:
+HOME3NW	Do you ever use the internet or email at HOME? {PIAL Trend modified}
 ```{r, echo=FALSE}
 plot(mobile$home3nw)
 ```
-#If HOME3NW=Yes:
-#MODEM3B 	At home, do you connect to the internet through a dial-up telephone line, or do you have some other type of connection, such as a DSL-enabled phone line, a cable TV modem, a wireless connection, a fiber optic connection such as FIOS (F-EYE-os) or a T-1?
+
+If HOME3NW=Yes:
+MODEM3B 	At home, do you connect to the internet through a dial-up telephone line, or do you have some other type of connection, such as a DSL-enabled phone line, a cable TV modem, a wireless connection, a fiber optic connection such as FIOS (F-EYE-os) or a T-1?
 ```{r, echo=FALSE}
 plot(mobile$modem3b, las = 2)
 ```
 
-#If INTUSE=Yes or EMLOCC=Yes:
-#TW	Do you ever use Twitter? {PIAL Trend}
+If INTUSE=Yes or EMLOCC=Yes:
+TW	Do you ever use Twitter? {PIAL Trend}
 ```{r, echo=FALSE}
 plot(mobile$tw)
 ```
 
-#ASK ALL INTERNET USERS (INTUSE=1 or EMLOCC=1):
-#SNS	Do you ever use a social networking site like Facebook, LinkedIn or Google Plus? {Modified PIAL Trend}
+ASK ALL INTERNET USERS (INTUSE=1 or EMLOCC=1):
+SNS	Do you ever use a social networking site like Facebook, LinkedIn or Google Plus? {Modified PIAL Trend}
 ```{r, echo=FALSE}
 plot(mobile$sns)
 ```
-#Q10	As I read the following list of items, please tell me if you happen to have each one, or not.  Do you have... [INSERT ITEMS IN ORDER]? {Modified PIAL Trend}
-#ASK ITEM a IF LANDLINE SAMPLE (SAMPLE=1)
-#a.	A cell phone... or a Blackberry or iPhone or other device that is also a cell phone {QL1}
+
+Q10	As I read the following list of items, please tell me if you happen to have each one, or not.  Do you have... [INSERT ITEMS IN ORDER]? {Modified PIAL Trend}
+ASK ITEM a IF LANDLINE SAMPLE (SAMPLE=1)
+a.	A cell phone... or a Blackberry or iPhone or other device that is also a cell phone {QL1}
 ```{r, echo=FALSE}
 plot(mobile$pial10a)
 ```
-#b.	A handheld device made primarily for e-book reading, such as a Nook or Kindle e-reader {EBOOKHV} {modified trend}
+
+b.	A handheld device made primarily for e-book reading, such as a Nook or Kindle e-reader {EBOOKHV} {modified trend}
 ```{r, echo=FALSE}
 plot(mobile$pial10b)
 ```
-#c.	A tablet computer like an iPad, Samsung Galaxy, Motorola Xoom (Pronounced: “zoom”), or Kindle Fire {IPADHV} {modified trend}
+
+c.	A tablet computer like an iPad, Samsung Galaxy, Motorola Xoom (Pronounced: “zoom”), or Kindle Fire {IPADHV} {modified trend}
 ```{r, echo=FALSE}
 plot(mobile$pial10c)
 ```
-#ASK IF CELL OWNER (Q10a=1 OR SAMPLE=2)
-#Q11	Do you ever use your cell phone to make a CHARITABLE donation by text message?
+
+ASK IF CELL OWNER (Q10a=1 OR SAMPLE=2)
+Q11	Do you ever use your cell phone to make a CHARITABLE donation by text message?
 ```{r, echo=FALSE}
 plot(mobile$pial11)
 ```
-#ASK IF CELL OWNER (Q10a=1 OR SAMPLE=2)
-#Q12	In the last 30 days, have you used your cell phone to do the following? (First,) in the last 30 days, have you used your cell phone to...[INSERT IN ORDER]? {New}
-#a. 	Call a friend while you were in a store for advice about a purchase you were considering making
+
+ASK IF CELL OWNER (Q10a=1 OR SAMPLE=2)
+Q12	In the last 30 days, have you used your cell phone to do the following? (First,) in the last 30 days, have you used your cell phone to...[INSERT IN ORDER]? {New}
+a. 	Call a friend while you were in a store for advice about a purchase you were considering making
 ```{r, echo=FALSE}
 plot(mobile$pial12a)
 ```
-#b.	Look up REVIEWS of a product while you were in a store, to help you decide if you should purchase it
+
+b.	Look up REVIEWS of a product while you were in a store, to help you decide if you should purchase it
 ```{r, echo=FALSE}
 plot(mobile$pial12b)
 ```
-#c.	Look up the price of a product online while you were in a store, to see if you could get a better price somewhere else
+
+c.	Look up the price of a product online while you were in a store, to see if you could get a better price somewhere else
 ```{r, echo=FALSE}
 plot(mobile$pial12c)
 ```
-#d.	Scan a product bar code to get more information or compare prices on something you were thinking of purchasing
+
+d.	Scan a product bar code to get more information or compare prices on something you were thinking of purchasing
 ```{r, echo=FALSE}
 plot(mobile$pial12d)
 ```
-#e.	Purchase a product in a store using a coupon you downloaded to your phone
+
+e.	Purchase a product in a store using a coupon you downloaded to your phone
 ```{r, echo=FALSE}
 plot(mobile$pial12e)
 ```
 
-#ASK IF HAVE LOOKED UP PRICES USING PHONE (Q12c=1)
-#Q13	Thinking of the most recent time you used your cell phone to look up prices on a product while you were in a store, did you end up purchasing the product?
+ASK IF HAVE LOOKED UP PRICES USING PHONE (Q12c=1)
+Q13	Thinking of the most recent time you used your cell phone to look up prices on a product while you were in a store, did you end up purchasing the product?
 ```{r, echo=FALSE}
 plot(mobile$pial13)
 
