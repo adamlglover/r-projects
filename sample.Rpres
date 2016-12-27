@@ -23,16 +23,78 @@ names(mobile)
 
 Summary of dataset
 ========================================================
+# summary(mobile) This command doesn't provide a visually pleasing understanding of the dataset.
 
-```{r, echo=FALSE}
-#summary(mobile) This command doesn't provide a visually pleasing understanding of the dataset.
-```
 Exploratory Research - Demographics
 ========================================================
 ```{r, echo=FALSE}
 plot(mobile$sample)
+# most respondents answered from a landline
 plot(mobile$state, las = 2)
 plot(mobile$cregion)
 plot(mobile$sex)
-table(mobile$age)
+# slightly more female respondents than males
+hist(mobile$age)
+# The median age for respondents 'median(mobile$age)' is 57
+```
+Survey Question Analyisis
+========================================================
+```{r, echo=FALSE}
+#INTUSE	Do you use the internet, at least occasionally? {PIAL Trend}
+plot(mobile$intuse)
+
+#EMLOCC	Do you send or receive email, at least occasionally? {PIAL Trend}
+plot(mobile$emlocc)
+
+#If INTUSE=Yes or EMLOCC=Yes:
+#HOME3NW	Do you ever use the internet or email at HOME? {PIAL Trend modified}
+plot(mobile$home3nw)
+
+#If HOME3NW=Yes:
+#MODEM3B 	At home, do you connect to the internet through a dial-up telephone line, or do you have some other type of connection, such as a DSL-enabled phone line, a cable TV modem, a wireless connection, a fiber optic connection such as FIOS (F-EYE-os) or a T-1?
+plot(mobile$modem3b, las = 2)
+
+
+#If INTUSE=Yes or EMLOCC=Yes:
+#TW	Do you ever use Twitter? {PIAL Trend}
+plot(mobile$tw)
+
+
+#ASK ALL INTERNET USERS (INTUSE=1 or EMLOCC=1):
+#SNS	Do you ever use a social networking site like Facebook, LinkedIn or Google Plus? {Modified PIAL Trend}
+plot(mobile$sns)
+
+#Q10	As I read the following list of items, please tell me if you happen to have each one, or not.  Do you have... [INSERT ITEMS IN ORDER]? {Modified PIAL Trend}
+#ASK ITEM a IF LANDLINE SAMPLE (SAMPLE=1)
+#a.	A cell phone... or a Blackberry or iPhone or other device that is also a cell phone {QL1}
+plot(mobile$pial10a)
+
+#b.	A handheld device made primarily for e-book reading, such as a Nook or Kindle e-reader {EBOOKHV} {modified trend}
+plot(mobile$pial10b)
+
+#c.	A tablet computer like an iPad, Samsung Galaxy, Motorola Xoom (Pronounced: “zoom”), or Kindle Fire {IPADHV} {modified trend}
+
+plot(mobile$pial10c)
+
+#ASK IF CELL OWNER (Q10a=1 OR SAMPLE=2)
+#Q11	Do you ever use your cell phone to make a CHARITABLE donation by text message?
+plot(mobile$pial11)
+
+#ASK IF CELL OWNER (Q10a=1 OR SAMPLE=2)
+#Q12	In the last 30 days, have you used your cell phone to do the following? (First,) in the last 30 days, have you used your cell phone to...[INSERT IN ORDER]? {New}
+#a. 	Call a friend while you were in a store for advice about a purchase you were considering making
+plot(mobile$pial12a)
+#b.	Look up REVIEWS of a product while you were in a store, to help you decide if you should purchase it
+plot(mobile$pial12b)
+#c.	Look up the price of a product online while you were in a store, to see if you could get a better price somewhere else
+plot(mobile$pial12c)
+#d.	Scan a product bar code to get more information or compare prices on something you were thinking of purchasing
+plot(mobile$pial12d)
+#e.	Purchase a product in a store using a coupon you downloaded to your phone
+plot(mobile$pial12e)
+
+#ASK IF HAVE LOOKED UP PRICES USING PHONE (Q12c=1)
+#Q13	Thinking of the most recent time you used your cell phone to look up prices on a product while you were in a store, did you end up purchasing the product?
+plot(mobile$pial13)
+
 ```

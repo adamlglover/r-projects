@@ -34,8 +34,11 @@ names(mobile)
 
 Summary of dataset
 ========================================================
-
+# summary(mobile) This command doesn't provide a visually pleasing understanding of the dataset.
 
 Exploratory Research - Demographics
 ========================================================
-![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-1.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-2.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-3.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-4.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-5.png)
+![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-1.png)![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-2.png)![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-3.png)![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-4.png)![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-5.png)
+Survey Question Analyisis
+========================================================
+![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-1.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-2.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-3.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-4.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-5.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-6.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-7.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-8.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-9.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-10.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-11.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-12.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-13.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-14.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-15.png)![plot of chunk unnamed-chunk-3](sample-figure/unnamed-chunk-3-16.png)
