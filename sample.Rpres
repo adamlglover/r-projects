@@ -25,14 +25,14 @@ Summary of dataset
 ========================================================
 
 ```{r, echo=FALSE}
-summary(mobile)
+#summary(mobile) This command doesn't provide a visually pleasing understanding of the dataset.
 ```
 Exploratory Research - Demographics
 ========================================================
 ```{r, echo=FALSE}
-table(mobile$sample)
-table(mobile$state)
-table(mobile$cregion)
-table(mobile$sex)
+plot(mobile$sample)
+plot(mobile$state, las = 2)
+plot(mobile$cregion)
+plot(mobile$sex)
 hist(mobile$age)
 ```
