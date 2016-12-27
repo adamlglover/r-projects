@@ -38,7 +38,7 @@ summary(mobile) This command doesn't provide a visually pleasing understanding o
 
 Exploratory Research - Demographics
 ========================================================
-![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-1.png)![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-2.png)![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-3.png)![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-4.png)![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-5.png)
+![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-1.png)![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-2.png)![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-3.png)![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-4.png)![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-5.png)![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-6.png)![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-7.png)![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-8.png)![plot of chunk unnamed-chunk-2](sample-figure/unnamed-chunk-2-9.png)
 Survey Question Analyisis
 ========================================================
 

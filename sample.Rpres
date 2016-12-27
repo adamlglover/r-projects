@@ -35,7 +35,11 @@ plot(mobile$cregion)
 plot(mobile$sex)
 # slightly more female respondents than males
 hist(mobile$age)
+plot(mobile$race)
 # The median age for respondents 'median(mobile$age)' is 57
+plot(mobile$inc, las=2)
+plot(mobile$party)
+plot(mobile$partyln)
 ```
 Survey Question Analyisis
 ========================================================
