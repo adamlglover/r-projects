@@ -30,15 +30,15 @@ Exploratory Research - Demographics
 ```{r, echo=FALSE}
 plot(mobile$sample)
 # most respondents answered from a landline
-plot(mobile$state, las = 2)
+plot(mobile$state, las = 2, cex.names=.5 )
 plot(mobile$cregion)
 plot(mobile$sex)
 # slightly more female respondents than males
 hist(mobile$age)
-plot(mobile$race)
+plot(mobile$race, cex.names=.5)
 # The median age for respondents 'median(mobile$age)' is 57
-plot(mobile$inc, las=2)
-plot(mobile$party)
+plot(mobile$inc, las=2, cex.names=.5)
+plot(mobile$party, cex.names=.8)
 plot(mobile$partyln)
 ```
 Survey Question Analyisis
@@ -63,7 +63,7 @@ plot(mobile$home3nw)
 If HOME3NW=Yes:
 MODEM3B 	At home, do you connect to the internet through a dial-up telephone line, or do you have some other type of connection, such as a DSL-enabled phone line, a cable TV modem, a wireless connection, a fiber optic connection such as FIOS (F-EYE-os) or a T-1?
 ```{r, echo=FALSE}
-plot(mobile$modem3b, las = 2)
+plot(mobile$modem3b, las = 2, cex.names=.5)
 ```
 
 If INTUSE=Yes or EMLOCC=Yes:
@@ -105,32 +105,32 @@ ASK IF CELL OWNER (Q10a=1 OR SAMPLE=2)
 Q12	In the last 30 days, have you used your cell phone to do the following? (First,) in the last 30 days, have you used your cell phone to...[INSERT IN ORDER]? {New}
 a. 	Call a friend while you were in a store for advice about a purchase you were considering making
 ```{r, echo=FALSE}
-plot(mobile$pial12a)
+plot(mobile$pial12a, las=2, cex.names=.5)
 ```
 
 b.	Look up REVIEWS of a product while you were in a store, to help you decide if you should purchase it
 ```{r, echo=FALSE}
-plot(mobile$pial12b)
+plot(mobile$pial12b, cex.names=.4)
 ```
 
 c.	Look up the price of a product online while you were in a store, to see if you could get a better price somewhere else
 ```{r, echo=FALSE}
-plot(mobile$pial12c)
+plot(mobile$pial12c, cex.names=.4)
 ```
 
 d.	Scan a product bar code to get more information or compare prices on something you were thinking of purchasing
 ```{r, echo=FALSE}
-plot(mobile$pial12d)
+plot(mobile$pial12d, cex.names=.4)
 ```
 
 e.	Purchase a product in a store using a coupon you downloaded to your phone
 ```{r, echo=FALSE}
-plot(mobile$pial12e)
+plot(mobile$pial12e, cex.names=.4)
 ```
 
 ASK IF HAVE LOOKED UP PRICES USING PHONE (Q12c=1)
 Q13	Thinking of the most recent time you used your cell phone to look up prices on a product while you were in a store, did you end up purchasing the product?
 ```{r, echo=FALSE}
-plot(mobile$pial13)
+plot(mobile$pial13, cex.names=.5)
 
 ```
