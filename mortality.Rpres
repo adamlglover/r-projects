@@ -54,9 +54,9 @@ The independent variables include all pollution variables
 library('Hmisc')
 library('psych')
 par(mfrow=c(2,2))
-hist(mortality$HCPot, main = "Log HC pollution potential")
-hist(mortality$NOxPot, main = "Log Nitrous Oxide pollution potential")
-hist(mortality$S02Pot, main = "Log Sulfur Dioxide pollution potential")
-hist(mortality$NOx, main = "Log Nitous Oxide")
+hist(mortality$HCPot, main = "HC pollution potential")
+hist(mortality$NOxPot, main = "Nitrous Oxide pollution potential")
+hist(mortality$S02Pot, main = "Sulfur Dioxide pollution potential")
+hist(mortality$NOx, main = "Nitous Oxide")
 describe(mortality[14:17])
 ```
