@@ -39,7 +39,18 @@ Age adjusting rates is a way to make fairer comparisons between groups with diff
 - No need for transformation
 
 
+
+```r
+library('Hmisc')
+library('psych')
+hist(mortality$Mortality)
+```
+
 ![plot of chunk unnamed-chunk-2](mortality-figure/unnamed-chunk-2-1.png)
+
+```r
+describe(mortality$Mortality)
+```
 
 ```
    vars  n   mean    sd median trimmed   mad    min     max  range skew
@@ -49,13 +60,28 @@ X1    -0.05 8.03
 ```
 Analysis of Independent Variables
 ========================================================
-The independent variables include all pollution variables
+The independent variables include all pollution variables (HCPot, NOxPot, SO2Pot, NOx)
 
 - High skewness and kurtosis values
 - Require log transformations
 
 
+
+```r
+library('Hmisc')
+library('psych')
+par(mfrow=c(2,2))
+hist(mortality$HCPot, main = "HC pollution potential")
+hist(mortality$NOxPot, main = "Nitrous Oxide pollution potential")
+hist(mortality$S02Pot, main = "Sulfur Dioxide pollution potential")
+hist(mortality$NOx, main = "Nitous Oxide")
+```
+
 ![plot of chunk unnamed-chunk-3](mortality-figure/unnamed-chunk-3-1.png)
+
+```r
+describe(mortality[14:17])
+```
 
 ```
        vars  n  mean    sd median trimmed   mad min max range skew
@@ -69,3 +95,14 @@ NOxPot    26.65  5.98
 S02Pot     2.96  8.18
 NOx       26.65  5.98
 ```
+Correlations
+========================================================
+Multicollinearity issues between HCPot, NOx, and NOxPot variables
+
+```r
+library('corrplot')
+correlation <- cor(mortality[,c("Education","HCPot","income","JanTemp","JulyTemp","Mortality","NOx","NOxPot","pop","pop.house","PopDensity","Rain","RelHum","S02Pot","X.NonWhite","X.WC")], use="complete")
+corrplot(correlation)
+```
+
+![plot of chunk unnamed-chunk-4](mortality-figure/unnamed-chunk-4-1.png)

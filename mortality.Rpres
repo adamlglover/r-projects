@@ -36,7 +36,7 @@ Age adjusting rates is a way to make fairer comparisons between groups with diff
 - No need for transformation
 
 
-```{r, echo=FALSE}
+```{r}
 library('Hmisc')
 library('psych')
 hist(mortality$Mortality)
@@ -44,13 +44,13 @@ describe(mortality$Mortality)
 ```
 Analysis of Independent Variables
 ========================================================
-The independent variables include all pollution variables
+The independent variables include all pollution variables (HCPot, NOxPot, SO2Pot, NOx)
 
 - High skewness and kurtosis values
 - Require log transformations
 
 
-```{r, echo=FALSE}
+```{r}
 library('Hmisc')
 library('psych')
 par(mfrow=c(2,2))
@@ -59,4 +59,12 @@ hist(mortality$NOxPot, main = "Nitrous Oxide pollution potential")
 hist(mortality$S02Pot, main = "Sulfur Dioxide pollution potential")
 hist(mortality$NOx, main = "Nitous Oxide")
 describe(mortality[14:17])
+```
+Correlations
+========================================================
+Multicollinearity issues between HCPot, NOx, and NOxPot variables
+```{r}
+library('corrplot')
+correlation <- cor(mortality[,c("Education","HCPot","income","JanTemp","JulyTemp","Mortality","NOx","NOxPot","pop","pop.house","PopDensity","Rain","RelHum","S02Pot","X.NonWhite","X.WC")], use="complete")
+corrplot(correlation)
 ```
