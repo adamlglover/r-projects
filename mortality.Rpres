@@ -8,25 +8,27 @@ Introduction
 ========================================================
 Researchers at General Motors collected data on 60 U.S. Standard Metropolitan Statistical Areas (SMSA's) in a study of whether air pollution contributes to mortality.
 
+I will attempt to use this dataset to answer the question, Does Pollition Affect Mortality? If not what does?
+
 
 Summary of dataset
 ========================================================
-
+The following are distributions of variables excluding polution variables
 ```{r}
 mortality <- read.csv('/Users/ag/Desktop/mortality.csv')
 par(mfrow=c(3,3))
 hist(mortality$JanTemp, main= "Jan Temp")
 hist(mortality$JulyTemp, main= "July Temp")
 hist(mortality$RelHum, main= "Relative Humidity") 
-hist(mortality$Rain, main = "Rain")
-hist(mortality$Mortality, main = "Mortality")
+hist(mortality$X.NonWhite, main = "Percentage of Nonwhites")
 hist(mortality$Education, main = "Median Education")
 hist(mortality$PopDensity, main = "Population Density")
-hist(mortality$X.NonWhite, main = "Percentage of Nonwhites")
+hist(mortality$Rain, main = "Rain")
 hist(mortality$X.WC, main = "Percentage of Whites Collar Workers")
+hist(mortality$pop, main = "Population")
 ```
 
-Analysis of Dependent Variable
+Analysis of Dependent Variable - Age adjusted mortality
 ========================================================
 The dependent variable is age adjusted mortality.
 
@@ -39,7 +41,8 @@ Age adjusting rates is a way to make fairer comparisons between groups with diff
 ```{r}
 library('Hmisc')
 library('psych')
-hist(mortality$Mortality)
+mortality <- read.csv('/Users/ag/Desktop/mortality.csv')
+hist(mortality$Mortality, main = "Age adjusted mortality")
 describe(mortality$Mortality)
 ```
 Analysis of Independent Variables
@@ -49,10 +52,10 @@ The independent variables include all pollution variables (HCPot, NOxPot, SO2Pot
 - High skewness and kurtosis values
 - Require log transformations
 
-
 ```{r}
 library('Hmisc')
 library('psych')
+mortality <- read.csv('/Users/ag/Desktop/mortality.csv')
 par(mfrow=c(2,2))
 hist(mortality$HCPot, main = "HC pollution potential")
 hist(mortality$NOxPot, main = "Nitrous Oxide pollution potential")
@@ -60,11 +63,35 @@ hist(mortality$S02Pot, main = "Sulfur Dioxide pollution potential")
 hist(mortality$NOx, main = "Nitous Oxide")
 describe(mortality[14:17])
 ```
+
+Log transformation for pollution variables 
+========================================================
+```{r}
+mortality <- read.csv('/Users/ag/Desktop/mortality.csv')
+par(mfrow=c(2,2))
+hist(log(mortality$HCPot))
+hist(log(mortality$NOxPot))
+hist(log(mortality$S02Pot))
+hist(log(mortality$NOx))
+```
 Correlations
 ========================================================
-Multicollinearity issues between HCPot, NOx, and NOxPot variables
+Multicollinearity issues between HCPot, NOx, and NOxPot variables.
+
+Unsure how multicollinearty affects predictions or rsquared if variables are used.
 ```{r}
 library('corrplot')
+mortality <- read.csv('/Users/ag/Desktop/mortality.csv')
 correlation <- cor(mortality[,c("Education","HCPot","income","JanTemp","JulyTemp","Mortality","NOx","NOxPot","pop","pop.house","PopDensity","Rain","RelHum","S02Pot","X.NonWhite","X.WC")], use="complete")
 corrplot(correlation)
+```
+Modeling
+========================================================
+Procedure - Stepwise Backward Elimination Regression
+
+```{r}
+mortality <- read.csv('/Users/ag/Desktop/mortality.csv')
+fit <- lm(Mortality ~ Education+JanTemp+Rain+log(mortality$X.NonWhite), data=mortality)
+summary(fit)
+plot(fit)
 ```
