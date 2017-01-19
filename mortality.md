@@ -133,33 +133,34 @@ Procedure - Stepwise Backward Elimination Regression
 
 ```r
 mortality <- read.csv('/Users/ag/Desktop/mortality.csv')
-fit <- lm(Mortality ~ Education+JanTemp+Rain+log(mortality$X.NonWhite), data=mortality)
+fit <- lm(Mortality ~ Education+JanTemp+Rain+log(mortality$NOxPot)+log(mortality$X.NonWhite), data=mortality)
 summary(fit)
 ```
 
 ```
 
 Call:
-lm(formula = Mortality ~ Education + JanTemp + Rain + log(mortality$X.NonWhite), 
-    data = mortality)
+lm(formula = Mortality ~ Education + JanTemp + Rain + log(mortality$NOxPot) + 
+    log(mortality$X.NonWhite), data = mortality)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--92.338 -20.866   3.524  24.513 100.360 
+-90.077 -21.753   2.732  19.458  94.061 
 
 Coefficients:
                            Estimate Std. Error t value Pr(>|t|)    
-(Intercept)               1122.5996    89.9133  12.485  < 2e-16 ***
-Education                  -24.1866     7.1961  -3.361  0.00142 ** 
-JanTemp                     -1.6368     0.5838  -2.804  0.00696 ** 
-Rain                         1.1430     0.5236   2.183  0.03332 *  
-log(mortality$X.NonWhite)   43.9467     6.8117   6.452 2.97e-08 ***
+(Intercept)               1000.8423    82.9967  12.059  < 2e-16 ***
+Education                  -18.5874     6.3836  -2.912 0.005215 ** 
+JanTemp                     -1.8298     0.5091  -3.594 0.000705 ***
+Rain                         2.1029     0.5058   4.158 0.000116 ***
+log(mortality$NOxPot)       18.6029     4.2833   4.343 6.23e-05 ***
+log(mortality$X.NonWhite)   38.0362     6.0726   6.264 6.43e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 40.38 on 55 degrees of freedom
-Multiple R-squared:  0.6074,	Adjusted R-squared:  0.5788 
-F-statistic: 21.27 on 4 and 55 DF,  p-value: 1.208e-10
+Residual standard error: 35.08 on 54 degrees of freedom
+Multiple R-squared:  0.709,	Adjusted R-squared:  0.6821 
+F-statistic: 26.32 on 5 and 54 DF,  p-value: 2.305e-13
 ```
 
 ```r

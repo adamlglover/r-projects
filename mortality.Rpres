@@ -91,7 +91,7 @@ Procedure - Stepwise Backward Elimination Regression
 
 ```{r}
 mortality <- read.csv('/Users/ag/Desktop/mortality.csv')
-fit <- lm(Mortality ~ Education+JanTemp+Rain+log(mortality$X.NonWhite), data=mortality)
+fit <- lm(Mortality ~ Education+JanTemp+Rain+log(mortality$NOxPot)+log(mortality$X.NonWhite), data=mortality)
 summary(fit)
 plot(fit)
 ```
